@@ -18,31 +18,28 @@ const interval = () => {
 
 // http output for producer
 
-const https = require('http');
+const http = require('http');
 
 let data = JSON.stringify({
   log: 'test'
 });
 
 const options = {
-  hostname: 'localhost',
+  hostname: '127.0.0.1',
   port: 3000,
   path: '/producer',
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': data.length
+    'Content-Type': 'application/json'
   }
 };
-
-
-
 
 const running = (duration) => {
   setInterval(() => {
     console.log(`duration: ${duration}`);
+    console.log(data);
 
-    const req = https.request(options, res => {
+    const req = http.request(options, res => {
       console.log(`statusCode: ${res.statusCode}`);
     
       res.on('data', d => {
@@ -53,9 +50,9 @@ const running = (duration) => {
     req.on('error', error => {
       console.error(error);
     });
-    
+
     req.write(data);
-    // req.end();
+    req.end();
   }, duration);
 }
 

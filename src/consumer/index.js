@@ -6,6 +6,8 @@ const fs = require('fs');
 
 const app = express();
 
+app.use(express.json(['strict']));
+
 app.get('/', (req, res) => {
   res.redirect('/status');
 });
@@ -16,8 +18,12 @@ app.get('/status', (req, res) => {
 });
 
 app.post('/producer', (req, res) => {
-  let timestamp = new Date().toLocaleString();
-  fs.writeFile(`log_${timestamp}`, req.body, (err) => {
+  let timestamp = new Date().toString();
+  let data = JSON.stringify(req.body);
+
+  console.log(data);
+
+  fs.writeFile(`log_${timestamp}`, data, (err) => {
     if (err) {
       throw err;
     }
@@ -25,6 +31,6 @@ app.post('/producer', (req, res) => {
   });
 });
 
-app.listen(3000, '127.0.0.1', () => {
+app.listen(3000, () => {
   console.log('listening');
 });
