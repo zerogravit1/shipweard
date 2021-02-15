@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+var i = 0;
 
 app.use(express.json(['strict']));
 
@@ -18,16 +19,16 @@ app.get('/status', (req, res) => {
 });
 
 app.post('/producer', (req, res) => {
-  let timestamp = new Date().toString();
-  let data = JSON.stringify(req.body);
+  let data = Buffer.from(JSON.stringify(req.body));
+  console.log(data.toString());
 
-  console.log(data);
-
-  fs.writeFile(`log_${timestamp}`, data, (err) => {
+  fs.writeFile(`log_${i}`, data.toString(), (err) => {
+    i++
     if (err) {
-      throw err;
+      console.error(err);
+      res.send(400).send(err);
     }
-    console.log('file written.');
+    res.status(201).send('file written.')
   });
 });
 
