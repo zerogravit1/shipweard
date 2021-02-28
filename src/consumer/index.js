@@ -7,21 +7,50 @@ const fs = require('fs');
 const app = express();
 var i = 0;
 
+/** allows express and sets structure enforcement to receive JSON data */
 app.use(express.json(['strict']));
 
+/**
+ * Home route to redirect to /status
+ * @name get/
+ * @function
+ * @param {string} path - a route path
+ * @param {callback} function - express middleware
+ */
 app.get('/', (req, res) => {
   res.redirect('/status');
 });
 
+/**
+ * Route /status used to determine server status
+ * @name get/status
+ * @function
+ * @param {string} path - a route path
+ * @param {callback} function - express middleware
+ */
 app.get('/status', (req, res) => {
   console.log(req.headers);
   res.status(200).send('request received');
 });
 
+/**
+ * Route /producer to consume producer content
+ * @name post/producer
+ * @function
+ * @param {string} path - a route path
+ * @param {callback} function - express middleware
+ */
 app.post('/producer', (req, res) => {
   let data = Buffer.from(JSON.stringify(req.body));
   console.log(data.toString());
 
+  /**
+   * A function to write req.body to filesystem
+   * @function
+   * @param {string} path - path and filename to write
+   * @param {string} data - data written to file
+   * @param {callback} function - callback function to capture error
+   */
   fs.writeFile(`log_${i}`, data.toString(), (err) => {
     i++
     if (err) {
@@ -32,6 +61,7 @@ app.post('/producer', (req, res) => {
   });
 });
 
+/** a function to start the server */
 app.listen(3000, () => {
   console.log('listening');
 });

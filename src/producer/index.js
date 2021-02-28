@@ -1,31 +1,18 @@
-// prototype concept of producer
+const http = require('http');
 
+/** a function to randomly generate a number */
 const interval = () => {
   return Math.floor(Math.random() * 5000);
 }
 
-// const output = (duration) => {
-  // console.log(`running...${duration}`);
-// }
-
-// const running = (duration) => {
-  // setInterval(() => {
-    // output(duration)
-  // }, duration);
-// }
-// 
-// running(interval());
-
-// http output for producer
-
-const http = require('http');
-
+/** sample data */
 let data = JSON.stringify({
   log: 'test'
 });
 
+/** config options for posting ${data} */
 const options = {
-  hostname: '127.0.0.1',
+  hostname: 'localhost',
   port: 3000,
   path: '/producer',
   method: 'POST',
@@ -34,6 +21,11 @@ const options = {
   }
 };
 
+/**
+ * a function to post data on an interval
+ * @name running 
+ * @param {number} duration - a value set to setInterval()
+ */
 const running = (duration) => {
   setInterval(() => {
     console.log(`duration: ${duration}`);
