@@ -1,11 +1,18 @@
 'use strict';
 
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
 
 const app = express();
 var i = 0;
+
+let logStream = fs.createWriteStream(path.join(__dirname, 'file.log'), {flags: 'a'});
+
+morgan.token('update', ':method | :url | :status | :res[content-length] | :response-time ms | :total-time[2] ms');
+
+app.use(morgan('update', {stream: logStream}));
 
 /** allows express and sets structure enforcement to receive JSON data */
 app.use(express.json(['strict']));
