@@ -4,14 +4,23 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
+const uuid = require('uuid');
 
 const app = express();
 var i = 0;
 
 let logStream = fs.createWriteStream(path.join(__dirname, 'file.log'), {flags: 'a'});
 
-morgan.token('update', ':method | :url | :status | :res[content-length] | :response-time ms | :total-time[2] ms');
+morgan.token('id', function getId (req) {
+  return req.id;
+});
 
+morgan.token('ip', function getIp (req) {
+  return req.connection.remoteAddress;
+});
+
+morgan.token('update', ':id | :ip | :method | :url | :status | :res[content-length] | :response-time ms | :total-time[2] ms');
+app.use(assignId);
 app.use(morgan('update', {stream: logStream}));
 
 /** allows express and sets structure enforcement to receive JSON data */
@@ -49,7 +58,6 @@ app.get('/status', (req, res) => {
  */
 app.post('/producer', (req, res) => {
   let data = Buffer.from(JSON.stringify(req.body));
-  console.log(data.toString());
 
   /**
    * A function to write req.body to filesystem
@@ -67,6 +75,11 @@ app.post('/producer', (req, res) => {
     res.status(201).send('file written.')
   });
 });
+
+function assignId (req, res, next) {
+  req.id = uuid.v4();
+  next();
+}
 
 /** a function to start the server */
 app.listen(3000, () => {
