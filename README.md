@@ -1,23 +1,25 @@
-# Anteater
+# Shipweard
 
-An application to measure container traffic and performance.
+Shipweard is an experimental traffic-observation service for containerized applications. The current prototype generates HTTP traffic, captures requests at a consumer, and provides a foundation for observing service-to-service behavior.
 
-## Consumer
+## Current prototype
 
-An http server to receive data.
+### Consumer
 
-### End points
->``` "/" redirects to "/status" ```
->
->```"/status"```
-> returns 200
->
->```"/producer"```
->an end point to received a JSON body and write content to a file
->
->>returns 201 on success
->>
->>returns 400 on failure
+An HTTP server that receives and persists producer traffic.
 
-## Producer
-An http POST requested wrapped in ```setInterval()```
+#### Endpoints
+
+- `GET /` redirects to `/status`.
+- `GET /status` returns `200` when the consumer is available.
+- `POST /producer` accepts a JSON body and writes the received content to a file.
+  - Returns `201` on success.
+  - Returns `400` on failure.
+
+### Producer
+
+Generates sample JSON traffic and sends HTTP POST requests to the consumer on a randomized interval.
+
+## Direction
+
+Shipweard can evolve from this traffic-generation and capture prototype into a tool for observing request timing, failures, retries, routing, and performance across containerized services.
