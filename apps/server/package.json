@@ -1,25 +1,11 @@
 {
   "name": "@shipweard/server",
-  "private": true,
-  "dependencies": {
-    "express": "...",
-    "mongodb": "..."
-  },
   "version": "0.1.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zerogravit1/shipweard.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zerogravit1/shipweard/issues"
-  },
-  "homepage": "https://github.com/zerogravit1/shipweard#readme",
-  "description": ""
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {},
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }

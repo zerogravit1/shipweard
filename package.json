@@ -29,10 +29,9 @@
     "url": "https://github.com/zerogravit1/shipweard/issues"
   },
   "homepage": "https://github.com/zerogravit1/shipweard#readme",
-
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.4.0",
+    "@types/node": "^24.13.3",
     "eslint": "^10.9.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.68.0",
