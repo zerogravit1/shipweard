@@ -1,0 +1,11 @@
+{
+  "name": "@shipweard/web",
+  "private": true,
+  "dependencies": {
+    "react": "...",
+    "react-dom": "..."
+  },
+  "devDependencies": {
+    "vite": "..."
+  }
+}
