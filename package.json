@@ -1,0 +1,41 @@
+{
+  "name": "shipweard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shipweard is an experimental traffic-observation service for containerized applications. The current prototype generates HTTP traffic, captures requests at a consumer, and provides a foundation for observing service-to-service behavior.",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "examples/demo-system/gateway"
+  ],
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerogravit1/shipweard.git"
+  },
+  "keywords": [],
+  "author": "Jonathan Schaffer",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/zerogravit1/shipweard/issues"
+  },
+  "homepage": "https://github.com/zerogravit1/shipweard#readme",
+
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.4.0",
+    "eslint": "^10.9.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.68.0",
+    "vitest": "^4.1.11"
+  }
+}
