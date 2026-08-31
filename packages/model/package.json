@@ -1,10 +1,11 @@
 {
-  "name": "@shipweard/module",
+  "name": "@shipweard/model",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   }
 }
