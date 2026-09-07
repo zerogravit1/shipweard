@@ -1,1 +1,1 @@
-console.log('package model index');
+export type { StatusResponse } from './status.ts';

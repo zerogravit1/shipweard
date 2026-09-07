@@ -3,7 +3,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "rewriteRelativeImportExtensions": true,
   },
   "include": ["src/**/*.ts"]
 }
