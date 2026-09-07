@@ -5,5 +5,5 @@ const port = Number(process.env.PORT ?? 3000);
 const app = createApp();
 
 app.listen(port, () => {
-  console.log(`Shipweard server listing on port ${port}`);
+  console.log(`Shipweard server listening on port ${port}`);
 });
