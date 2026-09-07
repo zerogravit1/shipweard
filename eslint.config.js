@@ -1,18 +1,14 @@
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
-import { defineConfig } from "eslint/config";
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    ignores: [
-      '**/dist/**',
-      '**/coverage/**',
-      '.history/**'
-    ]
+    ignores: ['**/dist/**', '**/coverage/**', '.history/**'],
   },
 
   js.configs.recommended,
   tseslint.configs.recommended,
-  eslintConfigPrettier
+  eslintConfigPrettier,
 ]);

@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@shipweard/model": "^0.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
