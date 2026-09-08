@@ -1,7 +1,5 @@
 import { Router } from 'express';
 
-import type { DemoResponse } from '../model/demo-response.ts';
-
 import { getDemo } from '../services/demo-service.ts';
 
 const router = Router();

@@ -1,16 +1,26 @@
 import request from 'supertest';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { createApp } from '../src/app.ts';
+import { getDemo } from '../src/services/demo-service.ts';
+
+vi.mock('../src/services/demo-service.ts', () => ({
+  getDemo: vi.fn(),
+}));
 
 describe('GET /api/v1/demo', () => {
-  it('returns the demo gateway response', async () => {
+  it('returns the demo service response', async () => {
+    vi.mocked(getDemo).mockResolvedValue({
+      service: 'demo-service',
+      message: 'Hello from the demo service',
+    });
+
     const response = await request(createApp()).get('/api/v1/demo');
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
-      service: 'demo-gateway',
-      message: 'Hello from the demo gateway',
-    });
+      service: 'demo-service',
+      message: 'Hello from the demo service',
+    })
   });
 });
