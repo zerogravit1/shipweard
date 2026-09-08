@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { createApp } from '../src/app.ts';
 
 describe('GET /api/v1/demo', () => {
-  it('reports that the server is running', async () => {
+  it('returns the demo gateway response', async () => {
     const response = await request(createApp()).get('/api/v1/demo');
 
     expect(response.status).toBe(200);
