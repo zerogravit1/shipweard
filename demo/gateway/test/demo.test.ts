@@ -21,6 +21,6 @@ describe('GET /api/v1/demo', () => {
     expect(response.body).toEqual({
       service: 'demo-service',
       message: 'Hello from the demo service',
-    })
+    });
   });
 });

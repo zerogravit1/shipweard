@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.ts';
 
-describe('GET /api/vi/demo', () => {
+describe('GET /api/v1/demo', () => {
   it('returns the demo service response', async () => {
     const response = await request(createApp()).get('/api/v1/demo');
 
