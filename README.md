@@ -3,6 +3,7 @@
 Shipweard is an experimental observability tool for visualizing how requests move through distributed systems. The current foundation provides a React frontend, Express API, and shared TypeScript contracts as the basis for trace-driven topology and request visualization.
 
 ## Current architecture
+
 ```
 apps/web
   React + Vite frontend
@@ -36,9 +37,9 @@ npm run dev -w @shipweard/server
 npm run dev -w @shipweard/web
 ```
 
-Web:    http://localhost:5173
+Web: http://localhost:5173
 Server: http://localhost:3000
-API:    GET /api/status
+API: GET /api/status
 
 ## Validation
 

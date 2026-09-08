@@ -1,6 +1,6 @@
 import express, { type Express } from 'express';
 import demoRouter from './routes/demo.ts';
-import healthRouter from './routes/health.ts'
+import healthRouter from './routes/health.ts';
 
 export const createApp = (): Express => {
   const app = express();
@@ -9,4 +9,4 @@ export const createApp = (): Express => {
   app.use(healthRouter);
 
   return app;
-}
+};

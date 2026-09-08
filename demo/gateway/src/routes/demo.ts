@@ -10,7 +10,7 @@ router.get('/v1/demo', (_req, res) => {
     message: 'Hello from the demo gateway',
   };
 
-  res.status(200).json(response)
+  res.status(200).json(response);
 });
 
 export default router;
