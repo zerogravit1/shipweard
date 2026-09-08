@@ -1,5 +1,5 @@
 import express, { type Express } from 'express';
-import demoRouter = from './routes/demo';
+import demoRouter from './routes/demo.ts';
 
 export const createApp = (): Express => {
   const app = express();
