@@ -1,0 +1,10 @@
+services:
+  demo-service:
+    ...
+  
+  demo-gateway:
+    ...
+    environment:
+      DEMO_SERVICE_BASE_URL: http://demo-service:3003
+    ports:
+      - "3002:3002"
