@@ -1,0 +1,32 @@
+{
+  "name": "demo-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "node --watch --import ./src/instrumentation.ts src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node --import ./dist/instrumentation.js dist/server.js",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/instrumentation": "^0.222.0",
+    "@opentelemetry/instrumentation-express": "^0.70.0",
+    "@opentelemetry/instrumentation-http": "^0.222.0",
+    "@opentelemetry/instrumentation-undici": "^0.32.0",
+    "@opentelemetry/sdk-node": "^0.222.0",
+    "@opentelemetry/sdk-trace-base": "^2.11.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.2.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  }
+}

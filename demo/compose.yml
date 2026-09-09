@@ -1,0 +1,16 @@
+services:
+  demo-service:
+    build:
+      context: ..
+      dockerfile: demo/service/Dockerfile
+
+  demo-gateway:
+    build:
+      context: ..
+      dockerfile: demo/gateway/Dockerfile
+    environment:
+      DEMO_SERVICE_BASE_URL: http://demo-service:3003
+    ports:
+      - "3002:3002"
+    depends_on:
+      - demo-service
