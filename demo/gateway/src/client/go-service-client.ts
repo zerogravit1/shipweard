@@ -8,5 +8,5 @@ export async function getGoDemo(): Promise<DemoResponse> {
     throw new Error(`Demo service returned ${response.status}`);
   }
 
-  return response.json() as Promise<DemoResponse>
+  return response.json() as Promise<DemoResponse>;
 }

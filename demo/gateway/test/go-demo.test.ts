@@ -12,7 +12,7 @@ describe('GET /api/v1/go/demo', () => {
   it('returns the demo service response', async () => {
     vi.mocked(getGoDemo).mockResolvedValue({
       service: 'demo-service',
-      message: 'Hello from the demo service',
+      message: 'Hello from the Go demo service',
     });
 
     const response = await request(createApp()).get('/api/v1/go/demo');
@@ -20,7 +20,7 @@ describe('GET /api/v1/go/demo', () => {
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
       service: 'demo-service',
-      message: 'Hello from the demo service',
+      message: 'Hello from the Go demo service',
     });
   });
 });
