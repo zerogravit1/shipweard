@@ -1,7 +1,7 @@
-import type { DemoResponse } from '../model/demo-response.js';
+import type { DemoResponse } from '../model/demo-response.ts';
 
 export async function getDemo(): Promise<DemoResponse> {
-  const demoServiceBaseUrl = process.env.DEMO_SERVICE_BASE_URL ?? 'http://localhost:3003'
+  const demoServiceBaseUrl = process.env.DEMO_SERVICE_BASE_URL ?? 'http://localhost:3003';
   const response = await fetch(`${demoServiceBaseUrl}/api/v1/demo`);
 
   if (!response.ok) {
