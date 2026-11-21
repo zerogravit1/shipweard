@@ -51,3 +51,10 @@ npm run build
 ```
 
 The `.history` directory preserves the original Shipweard prototype for historical reference. It is not part of the active application architecture.
+
+## License
+
+Copyright © 2026 Jonathan Schaffer.
+
+Licensed under the Apache License, Version 2.0.
+See [LICENSE](LICENSE) for details.
